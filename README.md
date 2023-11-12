@@ -16,7 +16,7 @@ npm run start
 ## api документация
 
 ```
-'http://localhost:5001//api-docs'
+'http://localhost:5001/api-docs'
 
 ```
 
