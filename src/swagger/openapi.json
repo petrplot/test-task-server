@@ -1,0 +1,128 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "test API",
+      "version": "v1"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:5001"
+      }
+    ],
+    "tags": [
+      {
+        "name": "API functions",
+        "description": "API functions of our application"
+      }
+    ],
+    "paths": {
+      "/api/data": {
+        "get": {
+          "summary": "returns an array of objects from get",
+          "tags": [
+            "API functions"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "example": 
+                      [
+                        {
+                          "email":"a@a.aa",
+                          "number":"12345"
+                        },
+                        {
+                          "email":"a@a.aa",
+                          "number":"12345"
+                        }
+                      ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "returns either an object or a stringfrom post",
+          "tags": [
+            "API functions"
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Info"
+                },
+                "example": {
+                  "email": "mail@mail.ru",
+                  "number": "12345"
+                }
+              }
+            }
+          },
+          
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "example": 
+                    
+                      {
+                        "email": "mail@mail.ru",
+                        "number": "12345"
+                      }
+                      
+                  }
+                },
+                "text":{
+                  "schema": {
+                    "type": "string",
+                    "example": "оъект в базе не найден"
+                  }
+                }
+            }
+            },
+            "404": {
+              "description": "not found",
+              "content": {
+                "text":{
+                  "schema": {
+                    "type": "string",
+                    "example": "оъект в базе не найден"
+                  }
+                }
+            }
+            }
+          }
+          
+            
+            
+          }
+        }
+      }
+    ,
+    "components": {
+      "schemas": {
+        "Info": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string"
+            },
+            "number": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  }
+  
